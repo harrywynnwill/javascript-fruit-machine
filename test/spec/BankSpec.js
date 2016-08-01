@@ -6,13 +6,17 @@ describe("Bank", function() {
   });
 
   it("initalizes with default credit", function(){
-
     expect(bank.account).toEqual(20);
+  });
+  it("allows you to play the game by inserting coins",function(){
+    bank.playGame(1);
+    expect(bank.account).toEqual(19);
+    expect(bank.jackpot).toEqual(51);
   });
 
   it("intializes with a custom credit", function(){
     bankForty = new Bank(40);
-    expect(bankForty.account).toEqual(40)
+    expect(bankForty.account).toEqual(40);
   });
 
   it("debits the user account of 10 coins", function(){
@@ -44,10 +48,17 @@ describe("Bank", function() {
   it("raises an error if the jackpot is empty", function(){
     bank.removeFromJackpot(50);
     expect(function(){bank.hitTheJackpot();}).toThrow(new Error("sorry the machine is empty"));
-  })
+  });
   it("pays out half of the jackpot", function(){
     bank.payOutHalf();
     expect(bank.jackpot).toEqual(25);
+    expect(bank.account).toEqual(45)
   });
+  it("pays out five times the jackpot", function(){
+    bank.payOutFiveTimes(1);
+    expect(bank.jackpot).toEqual(45);
+    expect(bank.account).toEqual(25);
+  });
+
 
 });

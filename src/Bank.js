@@ -15,7 +15,10 @@ function Bank(ammount) {
 Bank.prototype.isJackpotEmpty = function () {
   return this.jackpot === 0;
 };
-Bank.prototype.playGame = function(value) {
+Bank.prototype.playGame = function(coin) {
+  this.debit(coin);
+  this.addToJackpot(coin);
+
 
 };
 Bank.prototype.removeFromJackpot = function(coin) {
@@ -45,4 +48,18 @@ Bank.prototype.payOutHalf = function () {
   var halve = Math.ceil((0.5 * this.jackpot));
   this.credit(halve);
   this.removeFromJackpot(halve);
+};
+
+Bank.prototype.payOutFiveTimes = function (coin) {
+  var i = 0;
+  while (i < 5){
+    if(this.isJackpotEmpty()){
+      this.credit(coin);
+    }
+    else{
+      this.credit(coin);
+      this.removeFromJackpot(coin);
+    }
+    i++;
+  }
 };

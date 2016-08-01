@@ -1,7 +1,7 @@
 
 function Rules(){
 }
-var eachCons = require('each-cons');
+
 //
 // Rules.prototype.range = function (begin, end) {
 //   var i;

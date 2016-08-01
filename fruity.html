@@ -4,36 +4,42 @@
     <meta charset="utf-8">
     <title>Fruit Machine</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+    <link rel="stylesheet" href="public/main.css">
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.1.3.js"></script>
     <script src="src/FruitMachine.js"></script>
     <script src="src/Bank.js"></script>
     <script src="src/Rules.js"></script>
     <script src="interface.js"></script>
   </head>
   <body>
-
-<div class="row">
-
-      <div class="col s12 m4 l3">
-        <a class="waves-effect waves-light btn-large">Button</a>
-
-
-
+    <div id="viewbox">
+        <div class="wrapper" id="slot-two">
+          <ul>
+            <li style="background:#ff0"></li>
+            <li style="background:#0f0"></li>
+              <li style="background:#f00"></li>
+              <li style="background:#00f"></li>
+          </ul>
       </div>
-
-      <div class="col s12 m8 l9">
-        <div id="slot-one"class="container">
-
-          yellow
-        </div>
-        <div class="container">
-
-        blue
-        </div>
-
-      </div>
-
     </div>
 
+    <div id="viewbox">
+        <div class="wrapper" id="slot-one">
+            <ul>
+                <li style="background:#f00"></li>
+                <li style="background:#ff0"></li>
+                <li style="background:#0f0"></li>
+                <li style="background:#00f"></li>
+            </ul>
+        </div>
+      </div>
+
+
+
+<input type="button" value="start" id="start" />
+<input type="button" value="move To" id="moveTo" />
+<!-- <input type="text" id="pos" value="0" size="5" /> -->
 
   </body>
 </html>

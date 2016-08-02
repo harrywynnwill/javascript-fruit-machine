@@ -1,10 +1,7 @@
-function FruitMachine(bank) {
-  const BLUE = "blue";
-  const RED = "red";
-  const GREEN = "red";
-  const YELLOW = "yellow";
-  const WHEEL = [BLUE, RED, GREEN, YELLOW];
+function FruitMachine(bank, rules) {
 
+  const WHEEL = [1, 2, 3, 4];
+  this.rules = rules;
   this.bank = bank;
   this.playerTurn = [];
   this.wheel = WHEEL;
@@ -27,5 +24,17 @@ FruitMachine.prototype.spinTheWheels = function () {
 };
 
 FruitMachine.prototype.showBalance = function () {
-  this.bank.account();
+  return this.bank.showAccount();
+};
+
+FruitMachine.prototype.resultOfSpin = function () {
+  if(this.rules.isAllTheSame(this.playerTurn)){
+    this.bank.hitTheJackpot();
+  }
+  else if(this.rules.isAllDifferent(this.playerTurn)){
+    this.bank.payOutHalf();
+  }
+  else if(this.rules.isAdjacent(this.playerTurn)){
+    this.bank.payOutFiveTimes();
+  }
 };

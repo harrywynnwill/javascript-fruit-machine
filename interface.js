@@ -4,10 +4,16 @@ $(document).ready(function(){
 
   fruity.spinTheWheels();
 
-  // $('#slot-one').text(fruity.playerTurn[0]);
+  $('#credits').text(fruity.showBalance());
   // $('#slot-two').text(fruity.playerTurn[1]);
   // $('#slot-three').text(fruity.playerTurn[2]);
   // $('#slot-four').text(fruity.playerTurn[3]);
+  var slotOneOutput = fruity.playerTurn[0];
+  var slotTwoOutput = fruity.playerTurn[1];
+  var slotThreeOutput = fruity.playerTurn[2];
+  var slotFourOutput = fruity.playerTurn[3];
+
+  console.log(slotOneOutput);
 
   var slotOne = $('#slot-one>ul:first');
   var slotTwo = $('#slot-two>ul:first');
@@ -40,7 +46,7 @@ $(document).ready(function(){
               top: -800
           }, 2000, 'linear', function () {
               if (count == 0) {
-                  var slot = Math.floor(Math.random() * 4),
+                  var slot = slotOneOutput,
                       top = -slot * 200,
                       time =  2000 * slot / 4;
                   $(this).css({
@@ -61,7 +67,7 @@ $(document).ready(function(){
               top: -800
           }, 2000, 'linear', function () {
               if (count == 0) {
-                  var slot = 1,
+                  var slot = slotTwoOutput,
                       top = -slot * 200,
                       time =  2000 * slot / 4;
                   $(this).css({
@@ -77,6 +83,49 @@ $(document).ready(function(){
               };
           });
       }
+      function spinThree(count) {
+          $('#slot-three').stop().animate({
+              top: -800
+          }, 2000, 'linear', function () {
+              if (count == 0) {
+                  var slot = slotThreeOutput,
+                      top = -slot * 200,
+                      time =  2000 * slot / 4;
+                  $(this).css({
+                      top: 0
+                  }).animate({
+                      top: top
+                  },time, 'easeOutQuad')
+              } else {
+                  $(this).css({
+                      top: 0
+                  })
+                  spinThree(count - 1)
+              };
+          });
+      }
+      function spinFour(count) {
+          $('#slot-four').stop().animate({
+              top: -800
+          }, 2000, 'linear', function () {
+              if (count == 0) {
+                  var slot = slotFourOutput,
+                      top = -slot * 200,
+                      time =  2000 * slot / 4;
+                  $(this).css({
+                      top: 0
+                  }).animate({
+                      top: top
+                  },time, 'easeOutQuad')
+              } else {
+                  $(this).css({
+                      top: 0
+                  })
+                  spinFour(count - 1)
+              };
+          });
+      }
+
       $('#start').click(function () {
           $('#slot-one').css({
               top: 0
@@ -84,9 +133,17 @@ $(document).ready(function(){
           $('#slot-two').css({
             top: 0
           })
-          spinTwo(3);
-          spinOne(2);
-          // spinTwo(2, 2);
+          $('#slot-three').css({
+              top: 0
+          })
+          $('#slot-four').css({
+            top: 0
+          })
+
+          spinOne(1);
+          spinTwo(1);
+          spinThree(1);
+          spinFour(1);
       });
 
       $('#moveTo').click(function () {

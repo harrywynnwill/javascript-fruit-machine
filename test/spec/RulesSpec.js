@@ -17,9 +17,12 @@ describe("Rules", function(){
   it("returns true if all the slots are different", function(){
     expect(rules.isAllDifferent(allDifferent)).toBeTruthy();
     expect(rules.isAllDifferent(allTheSame)).toBeFalsy();
+  //  expect(rules.isAdjacent(adjacent)).toBeFalsy();
+
   });
   it("return true if there are two or more adjacent", function(){
     expect(rules.isAdjacent(adjacent)).toBeTruthy();
-  //  expect(rules.isAdjacent(allDifferent)).toBeFalsy();
+    expect(rules.isAdjacent(allDifferent)).toBeFalsy();
+
   });
 });

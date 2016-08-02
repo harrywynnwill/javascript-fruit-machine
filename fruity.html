@@ -14,6 +14,18 @@
   </head>
   <body>
     <div id="viewbox">
+        <div class="wrapper" id="slot-one">
+          <ul>
+            <li style="background:#ff0"></li>
+            <li style="background:#0f0"></li>
+              <li style="background:#f00"></li>
+              <li style="background:#00f"></li>
+          </ul>
+      </div>
+    </div>
+
+
+    <div id="viewbox">
         <div class="wrapper" id="slot-two">
           <ul>
             <li style="background:#ff0"></li>
@@ -24,12 +36,24 @@
       </div>
     </div>
 
+
     <div id="viewbox">
-        <div class="wrapper" id="slot-one">
+        <div class="wrapper" id="slot-three">
+          <ul>
+            <li style="background:#ff0"></li>
+            <li style="background:#0f0"></li>
+              <li style="background:#f00"></li>
+              <li style="background:#00f"></li>
+          </ul>
+      </div>
+    </div>
+
+    <div id="viewbox">
+        <div class="wrapper" id="slot-four">
             <ul>
+              <li style="background:#ff0"></li>
+              <li style="background:#0f0"></li>
                 <li style="background:#f00"></li>
-                <li style="background:#ff0"></li>
-                <li style="background:#0f0"></li>
                 <li style="background:#00f"></li>
             </ul>
         </div>
@@ -37,9 +61,10 @@
 
 
 
-<input type="button" value="start" id="start" />
-<input type="button" value="move To" id="moveTo" />
-<!-- <input type="text" id="pos" value="0" size="5" /> -->
+<div class="controller">
+<div id="credits"></div>
+  <button type="button" name="button" id="start">Spin!!</button>
+</div>
 
   </body>
 </html>

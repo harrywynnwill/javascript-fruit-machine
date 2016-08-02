@@ -11,6 +11,10 @@ function Bank(ammount) {
   this.jackpot = FLOAT;
 }
 
+Bank.prototype.showAccount= function () {
+  return this.account;
+};
+
 
 Bank.prototype.isJackpotEmpty = function () {
   return this.jackpot === 0;

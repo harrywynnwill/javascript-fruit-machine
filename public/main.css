@@ -1,9 +1,11 @@
 #viewbox {
     overflow: hidden;
-    width: 300px;
+    width: 200px;
     height: 200px;
     border: solid 1px #000;
     position: inline;
+    float:left;
+    display: inline;
 }
 #viewbox .wrapper {
     position: relative;
@@ -15,8 +17,12 @@
 }
 #viewbox li {
     display: block;
-    width: 300px;
+    width: 200px;
     height: 200px;
     text-align: center;
     font-size: 170px;
+}
+.controller {
+  float: left;
+  clear: left;
 }

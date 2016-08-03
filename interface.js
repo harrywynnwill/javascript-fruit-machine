@@ -1,6 +1,7 @@
 $(document).ready(function(){
   var bank = new Bank();
-  var fruity = new FruitMachine(bank);
+  var rules = new Rules();
+  var fruity = new FruitMachine(bank, rules);
 
   fruity.spinTheWheels();
 
@@ -139,11 +140,14 @@ $(document).ready(function(){
           $('#slot-four').css({
             top: 0
           })
-
+          fruity.insertCoin(1);
           spinOne(1);
           spinTwo(1);
           spinThree(1);
           spinFour(1);
+          console.log(fruity.playerTurn)
+          console.log(fruity.showBalance())
+          fruity.resultOfSpin(fruity.playerTurn)
       });
 
       $('#moveTo').click(function () {

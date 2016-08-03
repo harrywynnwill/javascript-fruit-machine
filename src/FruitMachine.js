@@ -1,14 +1,14 @@
 function FruitMachine(bank, rules) {
 
   const WHEEL = [1, 2, 3, 4];
-  this.rules = rules;
+  this.gameRules = rules;
   this.bank = bank;
   this.playerTurn = [];
   this.wheel = WHEEL;
 }
 FruitMachine.prototype.insertCoin = function(coin) {
-  this.coin = coin;
-  this.bank.playGame();
+
+  this.bank.playGame(coin);
 };
 FruitMachine.prototype.wheelOneSpin = function () {
   var spin = this.wheel[Math.floor(Math.random()*this.wheel.length)];
@@ -25,16 +25,20 @@ FruitMachine.prototype.spinTheWheels = function () {
 
 FruitMachine.prototype.showBalance = function () {
   return this.bank.showAccount();
+
 };
 
-FruitMachine.prototype.resultOfSpin = function () {
-  if(this.rules.isAllTheSame(this.playerTurn)){
+FruitMachine.prototype.resultOfSpin  = function (spin) {
+  if(this.gameRules.isAllTheSame(spin)){
+    console.log(spin)
+    console.log(this.gameRules.isAllTheSame(spin))
+
     this.bank.hitTheJackpot();
   }
-  else if(this.rules.isAllDifferent(this.playerTurn)){
+  else if(this.gameRules.isAllDifferent(spin)){
     this.bank.payOutHalf();
   }
-  else if(this.rules.isAdjacent(this.playerTurn)){
+  else if(this.gameRules.isAdjacent(spin)){
     this.bank.payOutFiveTimes();
   }
 };

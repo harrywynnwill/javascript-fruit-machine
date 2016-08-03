@@ -5,9 +5,10 @@ function FruitMachine(bank, rules) {
   this.bank = bank;
   this.playerTurn = [];
   this.wheel = WHEEL;
+  this.coin;
 }
 FruitMachine.prototype.insertCoin = function(coin) {
-
+  this.coin = coin;
   this.bank.playGame(coin);
 };
 FruitMachine.prototype.wheelOneSpin = function () {
@@ -39,6 +40,10 @@ FruitMachine.prototype.resultOfSpin  = function (spin) {
     this.bank.payOutHalf();
   }
   else if(this.gameRules.isAdjacent(spin)){
-    this.bank.payOutFiveTimes();
+   this.bank.payOutFiveTimes(this.coin);
   }
+};
+
+FruitMachine.prototype.clearTheTurn = function() {
+  this.playerTurn = [];
 };

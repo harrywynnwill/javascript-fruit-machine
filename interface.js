@@ -3,18 +3,62 @@ $(document).ready(function(){
   var rules = new Rules();
   var fruity = new FruitMachine(bank, rules);
 
-  fruity.spinTheWheels();
+
+
+
+
+  $('#start').click(function () {
+      $('#slot-one').css({
+          top: 0
+      })
+      $('#slot-two').css({
+        top: 0
+      })
+      $('#slot-three').css({
+          top: 0
+      })
+      $('#slot-four').css({
+        top: 0
+      })
+
+      fruity.spinTheWheels();
+
+      slotOneOutput = fruity.playerTurn[0];
+      slotTwoOutput = fruity.playerTurn[1];
+      slotThreeOutput = fruity.playerTurn[2];
+      slotFourOutput = fruity.playerTurn[3];
+
+      fruity.insertCoin(1);
+      spinOne(1);
+      spinTwo(1);
+      spinThree(1);
+      spinFour(1);
+      fruity.resultOfSpin(fruity.playerTurn)
+      console.log(fruity.playerTurn)
+      console.log(fruity.showBalance())
+      console.log(rules.isAllTheSame(fruity.playerTurn))
+      console.log(rules.isAllDifferent(fruity.playerTurn))
+      console.log(rules.isAdjacent(fruity.playerTurn))
+      fruity.clearTheTurn();
+      updateBalance();
+
+  });
+
+  $('#moveTo').click(function () {
+      moveTo($('#pos').val());
+  });
+
+
+
 
   $('#credits').text(fruity.showBalance());
-  // $('#slot-two').text(fruity.playerTurn[1]);
-  // $('#slot-three').text(fruity.playerTurn[2]);
-  // $('#slot-four').text(fruity.playerTurn[3]);
-  var slotOneOutput = fruity.playerTurn[0];
-  var slotTwoOutput = fruity.playerTurn[1];
-  var slotThreeOutput = fruity.playerTurn[2];
-  var slotFourOutput = fruity.playerTurn[3];
+  $('#credits').text(fruity.showBalance());
 
-  console.log(slotOneOutput);
+  var slotOneOutput;
+  var slotTwoOutput;
+  var slotThreeOutput;
+  var slotFourOutput;
+
 
   var slotOne = $('#slot-one>ul:first');
   var slotTwo = $('#slot-two>ul:first');
@@ -30,6 +74,13 @@ $(document).ready(function(){
   firstItemSlotTwo.clone().appendTo(slotTwo);
   firstItemSlotThree.clone().appendTo(slotThree);
   firstItemSlotFour.clone().appendTo(slotFour);
+
+  function updateBalance(){
+  $('#credits').text(fruity.showBalance());
+  }
+
+
+
 
       function moveTo(val) {
           val = -val % 800;
@@ -127,32 +178,6 @@ $(document).ready(function(){
           });
       }
 
-      $('#start').click(function () {
-          $('#slot-one').css({
-              top: 0
-          })
-          $('#slot-two').css({
-            top: 0
-          })
-          $('#slot-three').css({
-              top: 0
-          })
-          $('#slot-four').css({
-            top: 0
-          })
-          fruity.insertCoin(1);
-          spinOne(1);
-          spinTwo(1);
-          spinThree(1);
-          spinFour(1);
-          console.log(fruity.playerTurn)
-          console.log(fruity.showBalance())
-          fruity.resultOfSpin(fruity.playerTurn)
-      });
-
-      $('#moveTo').click(function () {
-          moveTo($('#pos').val());
-      });
 
 
 

@@ -2,9 +2,6 @@ function Rules(){
 
 }
 
-
-
-
 Rules.prototype.isAllTheSame = function (spin) {
   if(spin[0] === spin[1] && spin[1] === spin[2] && spin[2] ===spin[3] ){
     return true;
@@ -13,10 +10,7 @@ Rules.prototype.isAllTheSame = function (spin) {
 };
 
 Rules.prototype.isAllDifferent = function (spin) {
-  if(spin[0]!==spin[1] && spin[1]!==spin[2] && spin[2]!==spin[3]){
-    return true;
-  }
-  return false;
+  return (new Set(spin)).size === spin.length;
 };
 
 Rules.prototype.isAdjacent = function (spin) {

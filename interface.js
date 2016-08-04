@@ -40,7 +40,8 @@ $(document).ready(function(){
       console.log(rules.isAllDifferent(fruity.playerTurn))
       console.log(rules.isAdjacent(fruity.playerTurn))
       fruity.clearTheTurn();
-      updateBalance();
+      updateMoney();
+
 
   });
 
@@ -52,7 +53,7 @@ $(document).ready(function(){
 
 
   $('#credits').text(fruity.showBalance());
-  $('#credits').text(fruity.showBalance());
+    $('#jackpot').text(fruity.showJackpot());
 
   var slotOneOutput;
   var slotTwoOutput;
@@ -75,8 +76,9 @@ $(document).ready(function(){
   firstItemSlotThree.clone().appendTo(slotThree);
   firstItemSlotFour.clone().appendTo(slotFour);
 
-  function updateBalance(){
+  function updateMoney(){
   $('#credits').text(fruity.showBalance());
+  $('#jackpot').text(fruity.showJackpot());
   }
 
 

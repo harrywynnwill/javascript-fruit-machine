@@ -18,5 +18,9 @@
   "bugs": {
     "url": "https://github.com/harrywynnwill/javascript-fruit-machine/issues"
   },
-  "homepage": "https://github.com/harrywynnwill/javascript-fruit-machine#readme"
+  "homepage": "https://github.com/harrywynnwill/javascript-fruit-machine#readme",
+  "dependencies": {
+    "each-cons": "^1.0.0"
+  },
+  "devDependencies": {}
 }

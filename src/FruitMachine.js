@@ -28,6 +28,12 @@ FruitMachine.prototype.showBalance = function () {
   return this.bank.showAccount();
 
 };
+FruitMachine.prototype.showJackpot = function () {
+  return this.bank.jackpot;
+};
+
+
+
 
 FruitMachine.prototype.resultOfSpin  = function (spin) {
   if(this.gameRules.isAllTheSame(spin)){

@@ -1,6 +1,7 @@
 0 info it worked if it ends with ok
 1 verbose cli [ '/usr/local/Cellar/node/6.1.0/bin/node',
 1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'run',
 1 verbose cli   'start' ]
 2 info using npm@3.8.6
 3 info using node@v6.1.0
@@ -17,7 +18,7 @@
 4 verbose stack     at FSReqWrap.readFileAfterClose [as oncomplete] (fs.js:436:12)
 5 verbose cwd /Users/harrywynnwilliams/Projects/tech_tests/fruity-js
 6 error Darwin 15.6.0
-7 error argv "/usr/local/Cellar/node/6.1.0/bin/node" "/usr/local/bin/npm" "start"
+7 error argv "/usr/local/Cellar/node/6.1.0/bin/node" "/usr/local/bin/npm" "run" "start"
 8 error node v6.1.0
 9 error npm  v3.8.6
 10 error missing script: start

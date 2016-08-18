@@ -25,4 +25,11 @@
 .controller {
   float: left;
   clear: left;
+  font-family: digital;
+}
+
+
+@font-face {
+    font-family: digital;
+    src: url(digital.ttf);
 }

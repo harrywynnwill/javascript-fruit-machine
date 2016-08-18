@@ -51,9 +51,9 @@ $(document).ready(function(){
 
 
 
-
+  $('#bonus-alert').text(fruity.bonusPrizeMessage(fruity.playerTurn));
   $('#credits').text(fruity.showBalance());
-    $('#jackpot').text(fruity.showJackpot());
+  $('#jackpot').text(fruity.showJackpot());
 
   var slotOneOutput;
   var slotTwoOutput;
@@ -79,6 +79,7 @@ $(document).ready(function(){
   function updateMoney(){
   $('#credits').text(fruity.showBalance());
   $('#jackpot').text(fruity.showJackpot());
+  $('#bonus-alert').text(fruity.bonusPrizeMessage(fruity.playerTurn));
   }
 
 

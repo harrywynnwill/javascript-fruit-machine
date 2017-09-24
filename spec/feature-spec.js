@@ -1,3 +1,7 @@
+const Rules = require('../src/rules');
+const Bank = require('../src/bank');
+const FruitMachine = require('../src/fruit-machine');
+
 describe ("Features", function(){
 
   beforeEach(function(){
@@ -5,7 +9,7 @@ describe ("Features", function(){
     bank = new Bank();
     fruity = new FruitMachine(bank, rules);
   });
-  xit("player recieves the jackpot for all 4 colours", function(){
+  it("player recieves the jackpot for all 4 colours", function(){
     fruity.insertCoin(1);
     spyOn(Math, 'random').and.returnValue(0);
     fruity.spinTheWheels();
@@ -13,7 +17,6 @@ describe ("Features", function(){
     expect(fruity.showBalance()).toEqual(70);
     expect(fruity.bank.jackpot).toEqual(0);
   });
-
   it("player recieves 1/2 the jackpot for all different colours", function(){
     fruity.insertCoin(1);
     console.log(fruity.showBalance());

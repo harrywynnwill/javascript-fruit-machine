@@ -19,3 +19,5 @@ Rules.prototype.isAdjacent = function (spin) {
   }
   return false;
 };
+
+module.exports = Rules;

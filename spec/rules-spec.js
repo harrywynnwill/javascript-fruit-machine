@@ -1,5 +1,6 @@
+const Rules = require('../src/rules');
+
 describe("Rules", function(){
-  var rules;
   var allTheSame = [1,1,1,1];
   var allDifferent = [1,2,3,4];
   var adjacent = [1,2,2,3];
@@ -13,7 +14,6 @@ describe("Rules", function(){
     expect(rules.isAllTheSame(allDifferent)).toBeFalsy();
     expect(rules.isAllTheSame(adjacent)).toBeFalsy();
   });
-
   it("returns true if all the slots are different", function(){
     expect(rules.isAllDifferent(allDifferent)).toBeTruthy();
     expect(rules.isAllDifferent(allTheSame)).toBeFalsy();

@@ -57,3 +57,5 @@ FruitMachine.prototype.resultOfSpin  = function (spin) {
 FruitMachine.prototype.clearTheTurn = function() {
   this.playerTurn = [];
 };
+
+module.exports = FruitMachine;

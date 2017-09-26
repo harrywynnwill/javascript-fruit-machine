@@ -21,7 +21,9 @@
   "homepage": "https://github.com/harrywynnwill/javascript-fruit-machine#readme",
   "dependencies": {
     "each-cons": "^1.0.0",
-    "jasmine-node": "^1.14.5"
+    "jasmine-node": "^1.14.5",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
   },
   "devDependencies": {},
   "keywords": []

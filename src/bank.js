@@ -1,50 +1,51 @@
-// 'use strict';
-// class Bank {
-//
-// }
+'use strict';
 
-
-function Bank(ammount) {
+function Bank(amount) {
   const DEFAULT_CREDIT = 20;
   const FLOAT = 50;
   const HALVE = 0.5;
   // const NO_MONEY = "sorry the machine is empty";
 
-  if(typeof ammount === "undefined"){
-    ammount = DEFAULT_CREDIT;
+  if(typeof amount === "undefined"){
+    amount = DEFAULT_CREDIT;
   }
-  this.account = ammount;
+  this.account = amount;
   this.jackpot = FLOAT;
 }
 
-Bank.prototype.showAccount= function () {
+function Account(props) {
+  return <h1>balance {props.name}</h1>;
+}
+
+const element = <Account name="Sara" />;
+ReactDOM.render(
+  element,
+  document.getElementById('container')
+);
+
+Bank.prototype.showAccount = function () {
   return this.account;
 };
-
-
 Bank.prototype.isJackpotEmpty = function () {
   return this.jackpot === 0;
 };
 Bank.prototype.playGame = function(coin) {
   this.debit(coin);
   this.addToJackpot(coin);
-
-
 };
 Bank.prototype.removeFromJackpot = function(coin) {
   this.jackpot -= coin;
 };
-
 Bank.prototype.addToJackpot = function(coin) {
   this.jackpot += coin;
 };
 
-Bank.prototype.debit = function (ammount) {
-  this.account -= ammount;
+Bank.prototype.debit = function (amount) {
+  this.account -= amount;
 };
 
-Bank.prototype.credit = function (ammount) {
-  this.account += ammount;
+Bank.prototype.credit = function (amount) {
+  this.account += amount;
 };
 Bank.prototype.hitTheJackpot = function () {
   if(this.isJackpotEmpty()){
@@ -73,5 +74,3 @@ Bank.prototype.payOutFiveTimes = function (coin) {
     i++;
   }
 };
-
-module.exports = Bank;

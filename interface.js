@@ -3,19 +3,15 @@ $(document).ready(function(){
   var rules = new Rules();
   var fruity = new FruitMachine(bank, rules);
 
-
-
-
-
   $('#start').click(function () {
       $('#slot-one').css({
-          top: 0
+        top: 0
       })
       $('#slot-two').css({
         top: 0
       })
       $('#slot-three').css({
-          top: 0
+        top: 0
       })
       $('#slot-four').css({
         top: 0
@@ -41,15 +37,11 @@ $(document).ready(function(){
       console.log(rules.isAdjacent(fruity.playerTurn))
       fruity.clearTheTurn();
       updateMoney();
-
-
   });
 
   $('#moveTo').click(function () {
       moveTo($('#pos').val());
   });
-
-
 
   $('#bonus-alert').text(fruity.bonusPrizeMessage(fruity.playerTurn));
   $('#credits').text(fruity.showBalance());
@@ -59,7 +51,6 @@ $(document).ready(function(){
   var slotTwoOutput;
   var slotThreeOutput;
   var slotFourOutput;
-
 
   var slotOne = $('#slot-one>ul:first');
   var slotTwo = $('#slot-two>ul:first');
@@ -82,19 +73,16 @@ $(document).ready(function(){
   $('#bonus-alert').text(fruity.bonusPrizeMessage(fruity.playerTurn));
   }
 
-
-
-
-      function moveTo(val) {
-          val = -val % 800;
-          if (val > 0) val -= 800;
-          $('#slot-one').css({
-              top: val
-          });
-          $('#slot-two').css({
-              top: val
-          });
-      }
+  function moveTo(val) {
+    val = -val % 800;
+    if (val > 0) val -= 800;
+    $('#slot-one').css({
+        top: val
+    });
+    $('#slot-two').css({
+        top: val
+    });
+  }
 
       function spinOne(count) {
           $('#slot-one').stop().animate({
@@ -139,25 +127,25 @@ $(document).ready(function(){
           });
       }
       function spinThree(count) {
-          $('#slot-three').stop().animate({
-              top: -800
-          }, 2000, 'linear', function () {
-              if (count == 0) {
-                  var slot = slotThreeOutput,
-                      top = -slot * 200,
-                      time =  2000 * slot / 4;
-                  $(this).css({
-                      top: 0
-                  }).animate({
-                      top: top
-                  },time, 'easeOutQuad')
-              } else {
-                  $(this).css({
-                      top: 0
-                  })
-                  spinThree(count - 1)
-              };
-          });
+        $('#slot-three').stop().animate({
+            top: -800
+        }, 2000, 'linear', function () {
+          if (count == 0) {
+              var slot = slotThreeOutput,
+                  top = -slot * 200,
+                  time =  2000 * slot / 4;
+              $(this).css({
+                  top: 0
+              }).animate({
+                  top: top
+              },time, 'easeOutQuad')
+          } else {
+              $(this).css({
+                  top: 0
+              })
+              spinThree(count - 1)
+          };
+        });
       }
       function spinFour(count) {
           $('#slot-four').stop().animate({
@@ -180,10 +168,5 @@ $(document).ready(function(){
               };
           });
       }
-
-
-
-
-
 
 });
